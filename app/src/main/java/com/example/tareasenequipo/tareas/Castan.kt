@@ -9,14 +9,13 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.AddCircle
 import androidx.compose.material.icons.filled.Call
 import androidx.compose.material.icons.filled.Search
@@ -27,14 +26,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Paint
-import androidx.compose.ui.graphics.Shape
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.tareasenequipo.R
 
 @Preview(showBackground = true)
@@ -45,7 +42,7 @@ fun Multiservicios (){
     Box(modifier = Modifier
         .fillMaxSize()
         .background(color = Color(0xFF252728))){
-        Column() {
+        Column {
             Box(contentAlignment = Alignment.Center,
                 modifier = Modifier
                 .padding(top = 50.dp)
@@ -58,11 +55,19 @@ fun Multiservicios (){
                         .border(width = 3.dp, color = Color(0xFF252728), shape = CircleShape)
                         .clip(CircleShape))
             }
-            Box(){
-                Text(text = "")
+            Box(modifier = Modifier.fillMaxWidth()
+                .padding(top = 12.dp), contentAlignment = Alignment.Center)
+            {
+                Text(text = "Multiservicios Castan: Soluciones para tu hogar en Tampico",
+                    color = Color.White, fontWeight = FontWeight.Bold, fontSize = 40.sp,
+                    textAlign = TextAlign.Center, lineHeight = 33.sp)
             }
-            Box(){
-                Text(text = "")
+            Box(modifier = Modifier.fillMaxWidth(),
+                contentAlignment = Alignment.Center)
+            {
+                Text(text = "128 seguidores · 1 seguidos",
+                    color = Color.White, fontSize = 14.sp, fontWeight = FontWeight.Medium,
+                    lineHeight = 30.sp)
             }
             Row(verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.Center,
@@ -110,6 +115,22 @@ fun Multiservicios (){
                     }
                 }
             }
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 20.dp, vertical = 12.dp),
+                contentAlignment = Alignment.Center
+            ) {
+                Text(
+                    text = "En Multiservicios Castan ofrecemos todo tipo de servicios para el mantenimiento y reparación del hogar en Tampico, Tamaulipas. Desde aire acondicionado, pintura, plomería y electricidad, hasta albañilería, herrería e impermeabilizado.",
+                    color = Color(0xFFB0B3B8),
+                    fontSize = 15.sp,
+                    textAlign = TextAlign.Center,
+                    fontWeight = FontWeight.Medium,
+                    lineHeight = 20.sp
+                )
+            }
+
         }
     }
 }
