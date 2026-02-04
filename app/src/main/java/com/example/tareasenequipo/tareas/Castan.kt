@@ -65,7 +65,7 @@ fun Multiservicios (){
             Box(modifier = Modifier.fillMaxWidth(),
                 contentAlignment = Alignment.Center)
             {
-                Text(text = "128 seguidores · 1 seguidos",
+                Text(text = "128 seguidores",
                     color = Color.White, fontSize = 14.sp, fontWeight = FontWeight.Medium,
                     lineHeight = 30.sp)
             }
