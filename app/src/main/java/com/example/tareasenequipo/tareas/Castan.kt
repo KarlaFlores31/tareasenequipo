@@ -171,14 +171,29 @@ fun Multiservicios (){
                     lineHeight = 20.sp
                 )
             }
-
-            TextField(
-                value = nombreNegocio,
-                onValueChange = { nombreNegocio = it },
+            
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(5.dp)
-            )
+            ) {
+
+                Text(
+                    text = "Cambiar nombre página:",
+                    color = Color.White,
+                    fontSize = 14.sp
+                )
+
+                Spacer(modifier = Modifier.width(8.dp))
+
+                TextField(
+                    value = nombreNegocio,
+                    onValueChange = { nombreNegocio = it },
+                    modifier = Modifier.weight(1f)
+                )
+            }
+
 
         }
     }
