@@ -78,14 +78,6 @@ fun Multiservicios (){
                 )
             }
 
-            TextField(
-                value = nombreNegocio,
-                onValueChange = { nombreNegocio = it },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(12.dp)
-            )
-
             Box(modifier = Modifier.fillMaxWidth()
                 .padding(top = 12.dp), contentAlignment = Alignment.Center)
             {
@@ -179,6 +171,14 @@ fun Multiservicios (){
                     lineHeight = 20.sp
                 )
             }
+
+            TextField(
+                value = nombreNegocio,
+                onValueChange = { nombreNegocio = it },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(5.dp)
+            )
 
         }
     }
