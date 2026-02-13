@@ -16,9 +16,11 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AddCircle
 import androidx.compose.material.icons.filled.Call
+import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -29,6 +31,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -45,6 +48,8 @@ fun Multiservicios (){
             "En Multiservicios Castan ofrecemos todo tipo de servicios para el mantenimiento y reparación del hogar en Tampico, Tamaulipas. Desde aire acondicionado, pintura, plomería y electricidad, hasta albañilería, herrería e impermeabilizado.") }
 
     var siguiendo by remember { mutableStateOf(false) }
+
+    var seguidores by remember { mutableStateOf(value = "128 seguidores · 1 seguido") }
 
     var cambiarImagen by remember { mutableStateOf(false) }
 
@@ -89,7 +94,7 @@ fun Multiservicios (){
             Box(modifier = Modifier.fillMaxWidth(),
                 contentAlignment = Alignment.Center)
             {
-                Text(text = "128 seguidores · 1 seguido",
+                Text(text = seguidores,
                     color = Color.White, fontSize = 14.sp, fontWeight = FontWeight.Medium,
                     lineHeight = 30.sp)
             }
@@ -104,6 +109,7 @@ fun Multiservicios (){
                         .size(width = 100.dp , height = 40.dp)
                         .background(color = Color(0xFF0F66FF), shape = RoundedCornerShape(8.dp))
                         .clickable {
+                            seguidores = "141 seguidores · 1 seguido"
                             textoDescripcion =
                                 "Estamos trabajando en nuestra nueva plataforma digital para brindarte una experiencia mejorada."
                         }){
@@ -129,7 +135,7 @@ fun Multiservicios (){
                         }){
 
                     Row(verticalAlignment = Alignment.CenterVertically) {
-                        Icon(imageVector = Icons.Default.AddCircle,
+                        Icon(imageVector = if (siguiendo) Icons.Default.CheckCircle else Icons.Default.AddCircle,
                             contentDescription = "mensaje",
                             tint = Color(0xffffffff))
                         Text(text = if (siguiendo) " Siguiendo" else " Seguir",
@@ -174,6 +180,7 @@ fun Multiservicios (){
             
             Row(
                 verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Center,
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(5.dp)
@@ -187,14 +194,15 @@ fun Multiservicios (){
 
                 Spacer(modifier = Modifier.width(8.dp))
 
-                TextField(
-                    value = nombreNegocio,
+                BasicTextField(
+                    value = nombreNegocio ,
                     onValueChange = { nombreNegocio = it },
-                    modifier = Modifier.weight(1f)
+                    modifier = Modifier
+                        .size(width = 180.dp, height = 20.dp)
+                        .background(color = Color(0xffffffff)),
+                    textStyle = TextStyle(fontSize = 15.sp)
                 )
             }
-
-
         }
     }
 }
